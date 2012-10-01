@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div id="concurso-divisiones">
+        <div id="content-title">Elija donde desea competir</div>
+
+        <center>
+            {% for i in Concursos%}
+                <a href="{%url vista_division%}?concurso={{ i.id }}"> <input type="button" value='{{ i.nombre }}'/></a><br>
+            {% endfor %}
+
+        </center>
+    </div>
+{% endblock %}

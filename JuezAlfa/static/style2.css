@@ -1,0 +1,268 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color: white;/*background:url(css/img/grid.png) repeat center top;*/
+}
+header{
+    background: #90B0C9;/*#427BA3;*/
+    margin : 8px 8px 8px 8px;
+    color: white;
+    border-radius: 4px;/**/
+}
+div {
+    display: block;
+}
+p{
+    display: block;
+    padding-left: 10px;
+}
+#bienvenido{
+    color: white;
+    padding-left: 10px;
+    float: left;
+}
+#caja-establecerProblema{
+    padding: 8px;
+    background-color: white;
+}
+#caja-establecerProblema label{
+    width: 150px;
+    margin: 8px 8px 8px 8px;
+}
+#caja-establecerProblema input,textarea{
+    margin: 8px 8px 8px 8px;
+}
+#caja-problema,#caja-ranking{
+    padding: 8px;
+    background-color: white;
+}
+#caja-solucion{
+    background-color: white;
+    float: right;
+    margin-top: 8px;
+    padding: 8px;
+    margin-right: 30%;/*esta mal, corregir  para que se centre*/
+}
+#caja-solucion input{
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+}
+
+#cerrar-sesion{
+    margin-left: 90%;
+    float:right;
+    position: absolute;
+}
+#cerrar-sesion a{
+    color: white;
+    text-decoration: none;
+}
+#caja-titulo{
+    position: relative;
+}
+
+#concurso-divisiones{
+
+    background-color: white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    /*border: 1px solid #81C6FF;*/
+    margin: auto;
+    width:60%;
+}
+#concurso-divisiones input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#concurso_opciones{
+    margin: auto;
+    background-color: white;
+    width:60%;
+}
+#content{
+    /*background-color: white;*/
+    float: right;
+    width: 82%;
+    margin-top: 8px;
+    margin-right: 8px;
+
+}
+#content-title{
+    background-color:#90B0C9;/*#427BA3;*/
+    color: white;
+    font-size: 22px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-left: 10px;
+}
+#content-contenido{
+    background-color: white;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-right: 8px;
+}
+
+
+#contiene-caja-problema,#contiene-caja-ranking{
+    float: right;
+    width: 82%;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 5px;
+}
+.caja{
+    float: right;
+    width: 82%;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 5px;
+
+}
+#contiene-caja-problema{
+    background-color:#EFF5FB;/*#90B0C9;*/
+    border-radius: 4px;/**/
+}
+#contiene-caja-solucion{
+    width: 85%;
+    margin: auto;
+    padding: 8px;
+}
+#contiene-caja-establecerProblema{
+
+    background-color:#f6f6f6;/*#90B0C9;*/
+    float:right;
+    margin: 8px;
+    padding: 5px;
+}
+
+
+#encabezado{
+    padding-top: 8px;
+    padding-left: 8px;
+    color: white;
+}
+#login{
+    background-color: white;
+    border: 1px solid #81C6FF;
+    border-radius: 20px;
+    height: 25%;
+    margin: auto;
+    margin-top: 15%;
+    position: relative;
+    text-align: center;
+    width: 25%;
+}
+#login-contenido input{
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    width: 70%;
+}
+#login-contenido button {
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    width: 40%;
+}
+
+#mensaje-exito{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    text-align: center;
+    background-color: white;
+}
+#nav{
+    margin-top: 8px;
+    margin-left: 8px;
+    float: left;
+    position: relative;
+    width: 12%;
+    text-decoration: none;
+
+}
+#problema-enunciado,#problema-entrada, #problema-salida{
+    padding-left: 14px;
+    font-size: 110%;
+    font-weight: lighter;
+}
+
+#problema-titulo{
+    font-size: 120%;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    float: left;
+}
+#registro{
+    background-color: white;
+    width: 400px;
+    hight: 400px;
+    left: 50%;
+    top: 50%;
+    margin-left:-200px;
+    margin-top: -200px;
+    padding-bottom: 15px;
+    position:absolute;
+
+}
+
+#registro label{
+    width: 150px;
+    margin: 10px;
+}
+#submit-solution{
+    float: right;
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+#table_problems{
+    background-color: white;
+    width: 60%;
+    margin: auto;
+}
+#table_problems_concurso{
+    background-color: white;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+.linea{
+    background-color: #90B0C9;
+}
+.nav-contenido{
+    padding-left: 8px;
+    background-color: white;
+    border-radius: 4px;/**/
+}
+.nav-titulo,.registro-titulo{
+    background: #90B0C9;/*#427BA3;*/
+    color: white;
+    font-size: 18px;
+    border-top-left-radius: 4px;/**/
+    border-top-right-radius: 4px;/**/
+    padding-left: 8px;
+}
+#formEnvio{
+    overflow:hidden;
+    display:none;
+    width:170px;
+    position:absolute;
+    padding:1em;
+    margin:6px;
+    opacity:.9;
+    border:solid 1px #ccc;
+    border-radius:9px 0 9px 9px;   
+    background:#FAFAFA;
+}
+#formEnvio input{
+	width:90%
+}
+#formEnvio input:nth-of-type(1){
+    width:90%;
+}
+hr{
+    margin:0;
+    margin-bottom:20px;
+}

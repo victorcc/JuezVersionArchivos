@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        codeFISI
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>
+    <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>
+    <!-- KICKSTART -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all"/>
+    <style type="text/css">
+        #formEnvio {
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#envioSol").click(function (i) {
+                i.preventDefault();
+            });
+
+            $("#envioSol").toggle(function () {
+                $("#formEnvio").slideDown();
+            }, function () {
+                $("#formEnvio").slideUp();
+            });
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        codeFISI
+        <div id="cerrar-sesion"><a href="/logout">Cerrar sesión</a></div>
+        <!--no t envia a la direccion del login, t envia a otra direccion con la vista de loguin que no t permite loguearte-->
+    </div>
+
+    &nbsp Bienvenido&nbsp
+
+    {% block vistaUsuario %}{% endblock %}
+
+
+</header>
+
+<div id="nav">
+    <div class="nav-titulo">Opciones</div>
+    <div class="nav-contenido">
+        <ul class="alt">
+            <li><a href="{%url vista_division%}?concurso={{ concurso_id }}">Problemas</a></li>
+            <!--<li><a href="{%url vista_ranking%}?concurso={{ concurso_id }}">Ranking</a></li>-->
+            <li><a href="{%url vista_registroEnvios%}?concurso={{ concurso_id }}">Envios</a></li>
+            <hr>
+            <li><a href="{% url vista_principal%}">Principal</a></li>
+            <br>
+        </ul>
+    </div>
+</div>
+
+<div id="contiene-caja-problema">
+    <div id="problem">
+        <div id="caja-problema">
+
+            {% for i in problemas %}
+
+            <div id="caja-titulo">
+                <div id="problema-titulo">
+                    Problema: <b>{{ i.titulo }}</b>
+                    <br>ID: <b>{{ i.codigo }}</b>
+
+
+                </div>
+
+                <div id="submit-solution">
+                    <a href="{% url vista_downland %}?id_problema={{ i.id}}"><img src="{{ STATIC_URL }}images/file.gif">Entrada.in</a>&nbsp&nbsp
+
+                    <a id="envioSol" href="#">
+                        <img id="flecha" src="{{ STATIC_URL }}images/top.gif">Enviar solucion</a>
+
+                    <form id="formEnvio" method="post" enctype="multipart/form-data">
+                        <input id="problema" name="problema" type="hidden" value="{{ i.id }}">
+                        <input id="concurso" name="concurso" type="hidden" value="{{ concurso_id }}">
+                        <input id="titulo" name="titulo" type="hidden" value="{{ i.titulo }}">
+                        <input name="archivo" type="file" id="file"><br>
+                        <input style=" margin: 5px;" type="button" value="Enviar" id="envio_form">
+                    </form>
+
+                </div>
+            </div>
+
+            <hr class="linea">
+            <p style="font-size: 16px;color:#000">Enunciado:</p>
+
+            <div id="problema-enunciado">
+
+                <p>
+                    {{ i.enunciado|safe|escape }}
+                </p>
+            </div>
+
+            <p style="font-size: 16px;color:#000">Ejemplos:</p>
+
+            <div id="problema-entrada">
+                <p style="font-size: 14px;color:#000;">Entrada:</p>
+
+                <p>
+                    {{ i.entradaEjemplo|safe|escape }}<br>
+                </p>
+            </div>
+            <div id="problema-salida">
+                <p style="font-size: 14px;color:#000;">Salida:</p>
+
+                <p>
+                    {{ i.salidaEjemplo|safe|escape}}<br>
+                </p>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+    <div id="load"  hidden="true" style="text-align: center; background: white;">
+        <img src="{{ STATIC_URL }}images/loading2.gif" alt=""/>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#load").hide();
+    var url = "http://127.0.0.1:8000/";
+    function load() {
+        var data;
+        data = new FormData();
+        data.append('archivo', $('#file')[0].files[0]);
+        data.append('concurso', $('#concurso').val());
+        data.append('titulo', $('#titulo').val());
+        data.append('problema', $('#problema').val());
+        $("#problem").hide();
+        $("#load").show();
+        $.ajax({
+            url:url + "judge/concurso/problema/",
+            data:data,
+            processData:false,
+            contentType:false,
+            type:'POST',
+            enctype:"multipart/form-data",
+            success:function(data){
+                var i=0;
+                setInterval(function() {
+                    if(i==1){
+                        $("#load").html(data);
+                        clearInterval();
+                    }
+                    i++;
+                }, 1000);
+
+            }
+
+        });
+    }
+    ;
+    $("#envio_form").click(function (event) {
+        load();
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+Haz un programa que escriba Hola Mundo!, seguido de un salto de línea.<br>
+<b>Entrada:</b><br>
+Cualquiera.<br>
+<b>Salida:</b><br>
+Hola Mundo!, independientemente de la entrada.<br>
+<b>Pista:</b><br>
+No olvides el salto de línea.<br>
+
+Hola!<br>No escribas Hola Mundo!
+Hola Mundo!<br>Hola Mundo!<br>
+
+-----------------------------------------
+
+Escribe la tabla de multiplicar del n, con 0 ≤ n ≤ 9.<br>
+Entrada<br>
+Un número 0 ≤ n ≤ 9.<br>
+Salida<br>
+Escribe 11 líneas, con el resultado de las multiplicaciones n × 0, n × 1, . . . , n × 9, n × 10.<br>
+Sigue exactamente el formato de los ejemplos (sin espacios adicionales).<br>
+
+2
+
+3x0=0<br> 3x1=3<br> 3x2=6<br> 3x3=9<br> 3x4=12<br> 3x5=15<br> 3x6=18<br> 3x7=21<br> 3x8=24<br> 3x9=27<br> 3x10=30<br>
+

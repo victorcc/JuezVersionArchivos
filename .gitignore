@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+local_settings.py
+*.py~
+*.html~
+*.out~
+*.in~
+*.css~
+*.js~

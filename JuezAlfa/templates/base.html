@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+	codeFISI
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>                                   <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>                                  <!-- KICKSTART -->
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all" />
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        codeFISI
+        <div id="cerrar-sesion"><a href="/logout">Cerrar sesión</a></div><!--no t envia a la direccion del login, t envia a otra direccion con la vista de loguin que no t permite loguearte-->
+    </div>
+
+    &nbsp Bienvenido&nbsp
+
+    {% block vistaUsuario %}{% endblock %}
+
+
+</header>
+
+<div id="nav">
+    <div class="nav-titulo">Opciones</div>
+    <div class="nav-contenido">
+        <ul class="alt">
+            <li><a href="{%  url vista_principal %}">Principal</a></li>
+            <li><a href="{%  url vista_concursos %}">Concursos</a></li>
+            <!--<li><a href="{%  url vista_problemas %}">Problemas</a></li>--Se desabiltita cuando participe los equipos-->
+            <!--<li><a href="">Mis datos</a></li>-->
+        </ul>
+    </div>
+</div>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+
+<!--<div="footer">2012</div>-->
+
+
+</body>
+</html>

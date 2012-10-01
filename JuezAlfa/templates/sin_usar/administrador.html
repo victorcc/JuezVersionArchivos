@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>                                   <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>                                  <!-- KICKSTART -->
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all" />
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        Judge 2012
+        <div id="cerrar-sesion"><a href="/logout">Cerrar sesión</a></div><!--no t envia a la direccion del login, t envia a otra direccion con la vista de loguin que no t permite loguearte-->
+    </div>
+
+    &nbsp Bienvenido&nbsp
+
+    {% block vistaUsuario %}{% endblock %}
+
+
+</header>
+
+<div id="nav">
+    <div class="nav-titulo">Opciones</div>
+    <div class="nav-contenido">
+        <ul class="alt">
+            <li><a href="">Ver mis problemas</a></li>
+        </ul>
+    </div>
+</div>
+<div id="contiene-caja-establecerProblema">
+    <div id="caja-establecerProblema">
+        <form>
+            <label for="text1">Titulo:</label>
+            <input id="text1" type="text" /><br>
+
+            <label for="text4">ID:</label>
+            <input id="text4" type="text" /><br><!--noc si ira o lo hacemos directo-->
+
+            <label for="rte1">Enunciado: </label>
+            <textarea id="rte1" class="rte">Escribir aquí el enunciado</textarea><br>
+
+            <label for="textarea1">Entrada ejemplo:</label>
+            <textarea id="textarea1" placeholder="Entrada que mostrará"></textarea><!--para no hacer varios input, en el texto poner etiquetas <br> para el salto de linea-->
+            <label for="textarea1">Salida ejemplo:</label>
+            <textarea id="textarea2" placeholder="Salida que mostrará"></textarea><!--se espera que a la hora de cargar en el problema se reconozcan las etiquetas para los saltos de lineas, igualmente para las salidas-->
+            <br>
+            <label>Archivo de entrada: </label><input type="file"><label>Archivo de salida: </label><input type="file">
+            <center><input type="submit"></center>
+        </form>
+    </div>
+</div>
+</body>
+</html>

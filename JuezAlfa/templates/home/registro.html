@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>                                   <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>                                  <!-- KICKSTART -->
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all" />
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        Judge 2012
+    </div>
+
+</header>
+
+<div id="registro">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="registro-titulo">Registro:</div>
+        <!--<label for="select1">Tipo:</label>
+        <select id="select1">
+            <option value="0">-- Choose --</option>
+            <option value="1">Equipo</option>
+            <option value="2">Individual</option>
+        </select>-->
+        <label >Nombre del Equipo(s):</label><input type="text" name="nombre"/><br>
+        <!--<label >Apellidos:</label><input type="text" name="apellidos"/><br>-->
+
+        <!--<label >Género:</label><input type="checkbox" /> <label for="check1" class="inline">Masculino</label><br /><label ></label><input type="checkbox" id="check1" /> <label for="check1" class="inline">Femenino</label><br />-->
+
+        <label >Código (*):</label><input type="text" name="codigo"/>
+        <label >Contraseña (*):</label><input type="password" name="password"/><br>
+
+        <label >Email (*):</label><input type="email" name="email"/><br>
+
+        <!--<label >Lenguaje:
+        <select >
+            <option value="0">-- Choose --</option>
+            <option value="1">C++</option>
+            <option value="2">Java</option>
+            <option value="3">Python</option>
+        </select>-->
+
+        <!--<label for="select1">Escuela:</label>
+        <select id="select1">
+            <option value="0">-- Choose --</option>
+            <option value="1">Ingeniería de Software</option>
+            <option value="2">Ingeniería de Sistemas</option>
+        </select>-->
+        <br>
+        <br>
+        <center><button type="submit">Registrarme</button></center>
+
+    </form>
+</div>
+</body>
+</html>

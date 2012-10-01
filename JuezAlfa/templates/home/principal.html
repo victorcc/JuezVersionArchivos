@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Judge
+{% endblock %}
+
+{% block vistaUsuario %}
+    {% if not user.is_anonymous %}
+        {{ user.first_name }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="content-title">Bienvenido</div>
+    <div id="content-contenido">
+        <b>codeFISI</b>, es un juez que nació con la intención de fomentar los concursos de programación en la Facultad de Ingeniería de Sistemas.
+        <br>
+        <!--(siguiente a hacer: ranking, resulatdo en la tabla de problemas (tiene que ser automatico y no un td para cada problema), loading para mostrar
+        la respeustas,refinar el puntaje y el descuento de puntos en la base de datos, la descarga tiene descargarse con el mism problema del problema)
+        <br>
+        notas: <br>
+        cuando el concursate ya envio la respuesta correcta, y vuelve a enviar una respusta incorrecta en envios no va a salir
+        registrado con incorrecto, tampoco va se va a penalizar<br>
+        en registro de envios sale de 2012, debe salir del 2012, cuando pones fecha.ctime, indica una hora que no es, al parecer
+        falta configurar el huso horario
+       <br>-->
+    </div>
+{% endblock %}

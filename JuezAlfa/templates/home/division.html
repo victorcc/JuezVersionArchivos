@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>
+    <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>
+    <!-- KICKSTART -->
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all"/>
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        Judge 2012
+        <div id="cerrar-sesion"><a href="/logout">Cerrar sesión</a></div>
+        <!--no t envia a la direccion del login, t envia a otra direccion con la vista de loguin que no t permite loguearte-->
+    </div>
+
+    &nbsp Bienvenido&nbsp
+
+</header>
+<div id="nav">
+    <div class="nav-titulo">Opciones</div>
+    <div class="nav-contenido">
+        <ul class="alt">
+            <li><a href="{% url vista_division %}?concurso={{ concurso_id }}">Problemas</a></li>
+            <!--<li><a href="{%url vista_ranking%}?concurso={{ concurso_id }}">Ranking</a></li>-->
+            <li><a href="{% url vista_registroEnvios %}?concurso={{ concurso_id }}">Envios</a></li>
+            <hr>
+            <li><a href="{% url vista_principal %}">Principal</a></li>
+            <br>
+        </ul>
+    </div>
+
+</div>
+<div id="body_concurso">
+    <div id="table_problems_concurso">
+        {% if fecha %}
+            <center><h4>Concurso de Programación</h4></center>
+            <table class="sortable" cellspacing="0" cellpadding="0">
+                <thead>
+                <tr>
+                    <th width='30'>Resultado</th>
+                    <th>ID</th>
+                    <th>Problema</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for p in problemas %}
+                    <tr>
+                        <td>
+                            {% if p in user.equipo.get_problemas_bien %}
+                                <img src="{{ STATIC_URL }}images/icon_yes.png"><br>
+                            {% elif p in user.equipo.get_problemas_mal %}
+                                <img src="{{ STATIC_URL }}images/icon_not.gif"><br>
+                            {% endif %}
+                        </td>
+                        <td>{{ p.codigo }}</td>
+                        <td>
+                            <a href="{% url vista_problemas_concurso %}?problema={{ p.id }}&&concurso={{ concurso_id }}&&titulo={{ p.titulo }}">{{ p.titulo }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h3>Concurso no disponible</h3>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+      	codeFISI
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>                                   <!-- PRETTIFY -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script>                                  <!-- KICKSTART -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style1.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style2.css" media="all" />
+
+
+</head>
+<body>
+<header>
+    <div id="encabezado">
+        Judge 2012
+        <div id="cerrar-sesion"><a href="/logout">Cerrar sesión</a></div><!--no t envia a la direccion del login, t envia a otra direccion con la vista de loguin que no t permite loguearte-->
+    </div>
+
+    &nbsp Bienvenido&nbsp
+
+    {% block vistaUsuario %}{% endblock %}
+
+
+</header>
+
+<div id="nav">
+    <div class="nav-titulo">Opciones</div>
+    <div class="nav-contenido">
+        <ul class="alt">
+            <li><a href="{%url vista_division%}?concurso={{ concurso_id }}">Problemas</a></li>
+            <!--<li><a href="{%url vista_ranking%}?concurso={{ concurso_id }}">Ranking</a></li>-->
+            <li><a href="{%url vista_registroEnvios%}?concurso={{ concurso_id }}">Envios</a></li>
+            <hr>
+            <li><a href="{% url vista_principal%}">Principal</a></li><br>
+        </ul>
+    </div>
+</div>
+<div class="caja">
+    <div style="background: white;">
+        <table cellspacing="0" cellpadding="0">
+            <thead><tr>
+                <th>Fecha de envio</th>
+                <th>Resultado</th>
+                <th>Problema</th>
+                <th>Equipo</th>
+
+            </tr></thead>
+            <tbody>
+            {% for i in equipos %}
+                <tr>
+                    <td>{{ i.fecha }}</td>
+                    <td>{% if i.resultado %}
+                            <b style="color:green;">Correcto</b>
+                        {% else %}
+                            <b style="color:red;">Incorrecto</b>
+                        {% endif %}
+                    </td>
+                    <td>{{ i.problema.titulo }}</td>
+
+                    <td>{{ i.equipos.userEquipo.first_name}}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
